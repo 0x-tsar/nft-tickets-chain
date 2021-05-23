@@ -1,7 +1,5 @@
-const NFT = artifacts.require("NFT");
+const Tickets = artifacts.require("Tickets");
 
 module.exports = async function (deployer, _network, accounts) {
-  await deployer.deploy(NFT);
-  const nft = await NFT.deployed();
-  await nft.mint(accounts[0]);
+  await deployer.deploy(Tickets);
 };

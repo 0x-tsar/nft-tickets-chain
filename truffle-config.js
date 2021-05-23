@@ -1,5 +1,7 @@
+require('dotenv').config()
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const mnemonic = '';
+const mnemonic = process.env.MNEMONIC;
+const infura_url = process.env.INFURA_URL;
 
 /**
  * Use this file to configure your truffle project. It's seeded with some
@@ -62,16 +64,16 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    // rinkeby: {
-    //   provider: () => new HDWalletProvider(
-    //     mnemonic, 
-    //     'rinkeby url',
-    //     0,
-    //     1
-    //   ),
-    //   network_id: 4, //rinkeby
-    //   skipDryRun: true
-    // },
+    ropsten: {
+      provider: () => new HDWalletProvider(
+        mnemonic, 
+        infura_url,
+        0,
+        1
+      ),
+      network_id: 3, //ropsten
+      skipDryRun: true
+    },
     // Useful for private networks
     // private: {
     // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
